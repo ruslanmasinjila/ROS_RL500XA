@@ -1,0 +1,17 @@
+<package>
+  <description brief="ros_rl500xa">
+
+     ros_rl500xa
+
+  </description>
+  <author>ruslan</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ros_rl500xa</url>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+
+</package>
+
+

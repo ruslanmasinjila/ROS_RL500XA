@@ -1,0 +1,20 @@
+//********************************ROS variables*********************************
+
+//Create node handle
+ros::NodeHandle nh;
+
+//String message
+std_msgs::String str_msg;
+
+//Custom rl500xa messages
+ros_rl500xa::fromArduino_msg fromArduino_msg;
+
+
+//Create ROS publisher
+ros::Publisher arduinoToROS_pub("arduinoToROS_tpc", &fromArduino_msg);
+
+//Create ROS Subscriber
+ros::Subscriber<ros_rl500xa::toArduino_msg> arduinoCommands_sub("ROSToArduino_tpc", arduinoCommands_cb);
+
+
+

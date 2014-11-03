@@ -1,0 +1,24 @@
+//**********************************ROS FUNCTIONS***********************************
+void arduinoCommands_cb(const ros_rl500xa::toArduino_msg &ardCmd)
+{
+
+	//Platform Steering commands
+	fr_pwm=ardCmd.fr_pwm;
+	lr_pwm=ardCmd.lr_pwm;
+
+	xAxisDirection=*ardCmd.xAxisDirection;
+	yAxisDirection=*ardCmd.yAxisDirection;
+
+	//Turret Steering Commands
+	turret_pulse_width=ardCmd.turret_pulse_width;
+
+	//Robot Selection Commands
+	movingRobot=ardCmd.movingRobot;
+	
+}
+void publishEncoderDistances()
+{
+    fromArduino_msg.DL=leftEncoderCount;
+    fromArduino_msg.DR=rightEncoderCount;
+    arduinoToROS_pub.publish(&fromArduino_msg);
+}

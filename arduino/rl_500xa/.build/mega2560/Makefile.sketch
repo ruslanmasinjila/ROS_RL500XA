@@ -1,0 +1,14 @@
+
+
+
+
+
+.build/mega2560/src/rl_500xa.cpp : src/rl_500xa.ino
+	@mkdir -p .build/mega2560/src
+	@echo [93msrc/rl_500xa.ino[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+
+all : .build/mega2560/src/rl_500xa.cpp
+	@true
+

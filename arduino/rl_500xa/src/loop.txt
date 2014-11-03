@@ -1,0 +1,15 @@
+//**********************************MAIN LOOP***********************************
+void loop()
+{
+
+    nh.spinOnce();
+
+    //Steer the selected platform
+    if(movingRobot==robotID||movingRobot==allRobots)
+    {
+    steerPlatform();
+    }
+    turn_turret();
+    publishEncoderDistances();
+
+}

@@ -1,0 +1,11 @@
+<launch>
+
+<node pkg="ros_rl500xa" type="ROSToArduino.py" name="ROSToArduino" output="screen"/>
+
+<node pkg="rosserial_python" type="serial_node.py" name="arduino0" output="screen">
+	<param name="port" value="/dev/ttyACM0"/>
+	<param name="baud" value="57600"/>
+	<remap from="arduinoToROS_tpc" to="arduinoToROS_tpc0" />
+</node>
+
+</launch>

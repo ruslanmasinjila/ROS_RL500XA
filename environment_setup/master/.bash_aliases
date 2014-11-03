@@ -1,0 +1,5 @@
+alias launch='roslaunch ros_rl500xa ros_rl500xa.launch'
+alias rosvc='~/ros_workspace/ros_rl500xa/scripts/versionControl.sh'
+alias rosbp='~/ros_workspace/ros_rl500xa/scripts/buildProject.sh'
+alias inobp='cd ~/ros_workspace/ros_rl500xa/arduino/rl_500xa/;sh concatenator.sh;ino build;cd ~/ros_workspace/ros_rl500xa/'
+alias upload='cd ~/ros_workspace/ros_rl500xa/arduino/rl_500xa/;ino upload;cd ~/ros_workspace/ros_rl500xa/'

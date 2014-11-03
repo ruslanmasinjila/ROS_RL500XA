@@ -1,0 +1,7 @@
+//*****************************ENCODER FUNCTIONS*********************************
+void turn_turret()
+{
+turret.writeMicroseconds(turret_pulse_width);
+
+}
+

@@ -1,0 +1,5 @@
+//*****************************TURRET VARIABLES*********************************
+Servo turret;
+int turret_pin=22;
+int turret_pulse_width=1500;
+

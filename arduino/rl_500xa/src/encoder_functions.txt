@@ -1,0 +1,26 @@
+//*****************************ENCODER FUNCTIONS*********************************
+
+//Interrupt Service Routine for the Left encoder
+void leftEncoderISR()
+{
+  static unsigned long last_interrupt_time_left = 0;
+  unsigned long interrupt_time_left = millis();
+  if (interrupt_time_left - last_interrupt_time_left > debounce_time) 
+  {
+    leftEncoderCount+=1;
+  }
+  last_interrupt_time_left = interrupt_time_left;
+}
+
+//Interrupt Service Routine for the Right encoder
+void rightEncoderISR()
+{
+  static unsigned long last_interrupt_time_right = 0;
+  unsigned long interrupt_time_right = millis();
+  if (interrupt_time_right - last_interrupt_time_right > debounce_time) 
+  {
+    rightEncoderCount+=1;
+  }
+  last_interrupt_time_right = interrupt_time_right;
+}
+

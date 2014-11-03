@@ -1,0 +1,83 @@
+//*****************************RC VARIABLES*********************************
+//Channel 2 RC Signal. Signal considered lost below 900
+int SIGNAL_THRESHOLD=900;            
+
+//0 if there is no signal, 1 if there is connection 
+int RC_CONNECTION_STATUS=0;
+
+
+//Channel 2 Pulse widths (in microseconds)
+//Up=Forward
+//Down=Reverse
+
+int FORWARD_MIN=1500;                
+int FORWARD_MAX=1800;              
+
+int REVERSE_MIN=1300;                
+int REVERSE_MAX=1000;   
+
+//Channel 2 digital pins
+int CH2_PIN=52;                     
+int CH4_PIN=53;                       
+
+//Holds the duration, in microseconds, of the pulse from channel 2 when the signal is HIGH
+//Forward: ch2_rc>=1500. Set any value>=1800 to 1800
+//Reverse: ch2_rc<=1300. Set any value<=1000 to 1000
+//Stop: All remaining ch2_rc values
+int ch2_rc;                         
+
+//Channel 4 Widths
+//Left=left 
+//Right=right
+   
+int LEFT_MIN=1700;                
+int LEFT_MAX=1900;              
+
+int RIGHT_MIN=1500;                
+int RIGHT_MAX=1300;   
+
+//Holds the duration, in microseconds, of the pulse from channel 3 when the signal is HIGH
+//Left: ch4_rc>=1700. Set any value>=1900 to 1900
+//Right: ch4_rc<=1500. Set any value<=1300 to 1300
+//Straight: All remaining ch4_rc values
+int ch4_rc;                            
+
+
+//Holds the PWM value for forward and reverse
+int fr_pwm=0;                       
+ 
+//Holds the PWM value for left and right
+int lr_pwm=0;                       
+
+//Minimum Speed
+int PWM_MIN=0;                      
+
+//Maximum Speed (RC mode)
+int PWM_MAX=254;
+
+//Maximum Speed (Keyboard mode)
+int PWM_MAX_KEY=50;                    
+
+
+//PWM PINS on MegaMoto: 3,5,6,9,10,11
+//Pin  5 drives the LEFT  MOTOR in the REVERSE DIRECTION
+//Pin  6 drives the LEFT  MOTOR in the FORWARD DIRECTION
+//Pin  9 drives the RIGHT MOTOR in the FORWARD DIRECTION
+//Pin 10 drives the RIGHT MOTOR in the REVERSE DIRECTION
+int LEFT_MOTOR_FOWARD_PIN=6;
+int LEFT_MOTOR_REVERSE_PIN=5;
+int RIGHT_MOTOR_FOWARD_PIN=9;
+int RIGHT_MOTOR_REVERSE_PIN=10;
+
+
+//ENABLE_PIN Pins on MegaMoto: 8,12,13 and 5V(Always On)
+//Shields are enabled by HIGH signal on Pin 8, disabled by LOW signal
+//Place jumpers on all Shields on D8
+int ENABLE_PIN=8;
+
+
+//Holds the yAxisDirection direction of the motors (Forward='f', Reverse='r') in RC mode
+char yAxisDirection='\0';
+char xAxisDirection='\0';
+
+

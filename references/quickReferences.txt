@@ -1,0 +1,2 @@
+in rospy, spin() is used to stop the node from exiting
+in roscpp, spin() and spinOnce() are used to check callback functions

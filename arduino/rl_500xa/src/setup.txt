@@ -1,0 +1,37 @@
+//**********************************SETUP***********************************
+void setup()
+{
+
+//Initialize this node, publish and subscribe to topics
+nh.initNode();
+nh.advertise(arduinoToROS_pub);
+nh.subscribe(arduinoCommands_sub);
+
+//Initialize Motor shields for Arduino (MegaMoto shields)
+pinMode(CH2_PIN, INPUT);
+pinMode(CH4_PIN, INPUT);
+
+//ENABLE MOTOR SHIELDS
+pinMode(ENABLE_PIN,OUTPUT);
+digitalWrite(ENABLE_PIN,HIGH);
+
+//STOP ALL MOTORS
+analogWrite(RIGHT_MOTOR_FOWARD_PIN,0);
+analogWrite(RIGHT_MOTOR_REVERSE_PIN,0);
+
+analogWrite(LEFT_MOTOR_FOWARD_PIN,0);
+analogWrite(LEFT_MOTOR_REVERSE_PIN,0);
+
+//ATTACH ENCODER INTERRUPTS
+attachInterrupt(LEFT_ENCODER_INTERRUPT,leftEncoderISR,CHANGE);
+attachInterrupt(RIGHT_ENCODER_INTERRUPT,rightEncoderISR,CHANGE);
+
+//ATTACH SERVO
+turret.attach(turret_pin);
+turret.writeMicroseconds(1500);
+
+
+
+}
+
+

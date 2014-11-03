@@ -1,0 +1,16 @@
+//*****************************ENCODER VARIABLES*********************************
+//Best Results obtained when:
+//1. Encoder pcb is 1cm from the reflective surface
+//2. Debounce time is 2 milliseconds
+
+int LEFT_ENCODER_INTERRUPT=0;	//On Digital Pin 2 of Arduino 
+int RIGHT_ENCODER_INTERRUPT=1;	//On Digital Pin 3 of Arduino
+
+//Encoder Counts [Black and White Stripes]
+int leftEncoderCount=0;
+int rightEncoderCount=0;
+
+//Debounce time
+int debounce_time=3;
+
+

@@ -1,0 +1,5 @@
+######## ROS ENVIRONMENT SETUP (DISTRIBUTED MACHINES)
+export ROS_MASTER_URI=http://10.42.0.1:11311		#Master IP
+export ROS_IP=10.42.0.43				#Slave IP
+
+echo "ROBOT 1"

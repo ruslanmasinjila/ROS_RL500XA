@@ -1,0 +1,25 @@
+//**********************************PROTOTYPES***********************************
+
+//ROS prototypes
+void arduinoCommands_cb(const ros_rl500xa::toArduino_msg &ardCmd);
+void publishEncoderDistances();
+
+//RC prototypes
+void steerPlatform();
+void forwardReversePWM();
+void leftRightPWM();
+void differentialSteering();
+void keyboardSteering(char* const direction);
+int  pwmDifference(int fr_pwm, int lr_pwm);
+void stopDrivingMotors();
+void stopReverse();
+void stopFoward();
+
+//Interrupt Prototypes
+void leftEncoderISR();
+void rightEncoderISR();
+
+//Turret Prototypes
+void turn_turret();
+
+
