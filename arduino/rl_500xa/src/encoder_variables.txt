@@ -11,6 +11,9 @@ int leftEncoderCount=0;
 int rightEncoderCount=0;
 
 //Debounce time
-int debounce_time=3;
+int debounce_time=10;
+
+// Flag for resetting encoder readings
+int resetEncoders=0;
 
 

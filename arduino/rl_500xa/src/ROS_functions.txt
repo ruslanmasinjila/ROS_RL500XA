@@ -14,11 +14,18 @@ void arduinoCommands_cb(const ros_rl500xa::toArduino_msg &ardCmd)
 
 	//Robot Selection Commands
 	movingRobot=ardCmd.movingRobot;
+
+	//Commands requestind encoder variables
+	sendEncoderData=ardCmd.sendEncoderData;
+
+	//Command for resetting encoder readings
+	resetEncoders=ardCmd.resetEncoders;
 	
 }
 void publishEncoderDistances()
 {
     fromArduino_msg.DL=leftEncoderCount;
     fromArduino_msg.DR=rightEncoderCount;
+    fromArduino_msg.robotID=robotID;
     arduinoToROS_pub.publish(&fromArduino_msg);
 }

@@ -1,14 +1,17 @@
 FILE(REMOVE_RECURSE
+  "../msg_gen"
   "../src/ros_rl500xa/msg"
   "../msg_gen"
-  "../msg_gen"
   "CMakeFiles/ROSBUILD_genmsg_lisp"
-  "../msg_gen/lisp/toArduino_msg.lisp"
-  "../msg_gen/lisp/_package.lisp"
-  "../msg_gen/lisp/_package_toArduino_msg.lisp"
   "../msg_gen/lisp/fromArduino_msg.lisp"
   "../msg_gen/lisp/_package.lisp"
   "../msg_gen/lisp/_package_fromArduino_msg.lisp"
+  "../msg_gen/lisp/fromObserver_msg.lisp"
+  "../msg_gen/lisp/_package.lisp"
+  "../msg_gen/lisp/_package_fromObserver_msg.lisp"
+  "../msg_gen/lisp/toArduino_msg.lisp"
+  "../msg_gen/lisp/_package.lisp"
+  "../msg_gen/lisp/_package_toArduino_msg.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

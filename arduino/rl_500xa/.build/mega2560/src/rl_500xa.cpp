@@ -168,7 +168,10 @@ int leftEncoderCount=0;
 int rightEncoderCount=0;
 
 //Debounce time
-int debounce_time=3;
+int debounce_time=10;
+
+// Flag for resetting encoder readings
+int resetEncoders=0;
 
 
 //*****************************TURRET VARIABLES*********************************
@@ -177,9 +180,10 @@ int turret_pin=22;
 int turret_pulse_width=1500;
 
 //********************************ROBOT VARIABLES*********************************
-int robotID=0;
+int robotID=102;
 int allRobots=999;
 int movingRobot=-1;
+int sendEncoderData=0;
 //**********************************SETUP***********************************
 void setup()
 {
@@ -228,8 +232,27 @@ void loop()
     {
     steerPlatform();
     }
-    turn_turret();
-    publishEncoderDistances();
+
+    //turn_turret();
+
+    //TODO: Add &&movingRobot=robotID to trigger only one
+    //callback inside ROSToArduino node
+
+    if(sendEncoderData==1 && movingRobot==robotID)	
+    {
+     publishEncoderDistances();
+
+    // Reset Data Request Command to prevent sending continuously
+    sendEncoderData=0;
+    }
+
+    //Reset Left and Right wheel encoder values
+    if(resetEncoders==1)
+    {
+    leftEncoderCount=0;
+    rightEncoderCount=0;
+    resetEncoders=0;
+    }
 
 }
 //**********************************ROS FUNCTIONS***********************************
@@ -248,12 +271,19 @@ void arduinoCommands_cb(const ros_rl500xa::toArduino_msg &ardCmd)
 
 	//Robot Selection Commands
 	movingRobot=ardCmd.movingRobot;
+
+	//Commands requestind encoder variables
+	sendEncoderData=ardCmd.sendEncoderData;
+
+	//Command for resetting encoder readings
+	resetEncoders=ardCmd.resetEncoders;
 	
 }
 void publishEncoderDistances()
 {
     fromArduino_msg.DL=leftEncoderCount;
     fromArduino_msg.DR=rightEncoderCount;
+    fromArduino_msg.robotID=robotID;
     arduinoToROS_pub.publish(&fromArduino_msg);
 }
 //****************************RC FUNCTIONS***************************

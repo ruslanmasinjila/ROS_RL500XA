@@ -4,3 +4,5 @@ int32 turret_pulse_width
 string xAxisDirection
 string yAxisDirection
 int32 movingRobot
+int32 sendEncoderData
+int32 resetEncoders

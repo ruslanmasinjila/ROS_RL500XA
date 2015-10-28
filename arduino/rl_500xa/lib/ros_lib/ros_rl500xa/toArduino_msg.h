@@ -18,6 +18,8 @@ namespace ros_rl500xa
       char * xAxisDirection;
       char * yAxisDirection;
       long movingRobot;
+      long sendEncoderData;
+      long resetEncoders;
 
     virtual int serialize(unsigned char *outbuffer)
     {
@@ -72,6 +74,26 @@ namespace ros_rl500xa
       *(outbuffer + offset + 2) = (u_movingRobot.base >> (8 * 2)) & 0xFF;
       *(outbuffer + offset + 3) = (u_movingRobot.base >> (8 * 3)) & 0xFF;
       offset += sizeof(this->movingRobot);
+      union {
+        long real;
+        unsigned long base;
+      } u_sendEncoderData;
+      u_sendEncoderData.real = this->sendEncoderData;
+      *(outbuffer + offset + 0) = (u_sendEncoderData.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_sendEncoderData.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_sendEncoderData.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_sendEncoderData.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->sendEncoderData);
+      union {
+        long real;
+        unsigned long base;
+      } u_resetEncoders;
+      u_resetEncoders.real = this->resetEncoders;
+      *(outbuffer + offset + 0) = (u_resetEncoders.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_resetEncoders.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_resetEncoders.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_resetEncoders.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->resetEncoders);
       return offset;
     }
 
@@ -138,6 +160,28 @@ namespace ros_rl500xa
       u_movingRobot.base |= ((typeof(u_movingRobot.base)) (*(inbuffer + offset + 3))) << (8 * 3);
       this->movingRobot = u_movingRobot.real;
       offset += sizeof(this->movingRobot);
+      union {
+        long real;
+        unsigned long base;
+      } u_sendEncoderData;
+      u_sendEncoderData.base = 0;
+      u_sendEncoderData.base |= ((typeof(u_sendEncoderData.base)) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_sendEncoderData.base |= ((typeof(u_sendEncoderData.base)) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_sendEncoderData.base |= ((typeof(u_sendEncoderData.base)) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_sendEncoderData.base |= ((typeof(u_sendEncoderData.base)) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->sendEncoderData = u_sendEncoderData.real;
+      offset += sizeof(this->sendEncoderData);
+      union {
+        long real;
+        unsigned long base;
+      } u_resetEncoders;
+      u_resetEncoders.base = 0;
+      u_resetEncoders.base |= ((typeof(u_resetEncoders.base)) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_resetEncoders.base |= ((typeof(u_resetEncoders.base)) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_resetEncoders.base |= ((typeof(u_resetEncoders.base)) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_resetEncoders.base |= ((typeof(u_resetEncoders.base)) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->resetEncoders = u_resetEncoders.real;
+      offset += sizeof(this->resetEncoders);
      return offset;
     }
 

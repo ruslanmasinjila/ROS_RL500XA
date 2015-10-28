@@ -31,6 +31,9 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/ruslan/ros_workspace/ros_rl500xa
 
@@ -44,23 +47,12 @@ include CMakeFiles/ROSBUILD_genmsg_py.dir/progress.make
 
 CMakeFiles/ROSBUILD_genmsg_py: ../src/ros_rl500xa/msg/__init__.py
 
-../src/ros_rl500xa/msg/__init__.py: ../src/ros_rl500xa/msg/_toArduino_msg.py
 ../src/ros_rl500xa/msg/__init__.py: ../src/ros_rl500xa/msg/_fromArduino_msg.py
+../src/ros_rl500xa/msg/__init__.py: ../src/ros_rl500xa/msg/_fromObserver_msg.py
+../src/ros_rl500xa/msg/__init__.py: ../src/ros_rl500xa/msg/_toArduino_msg.py
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/ros_rl500xa/msg/__init__.py"
-	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/ruslan/ros_workspace/ros_rl500xa/msg/toArduino_msg.msg /home/ruslan/ros_workspace/ros_rl500xa/msg/fromArduino_msg.msg
-
-../src/ros_rl500xa/msg/_toArduino_msg.py: ../msg/toArduino_msg.msg
-../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
-../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/roslib/bin/gendeps
-../src/ros_rl500xa/msg/_toArduino_msg.py: ../manifest.xml
-../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/roslang/manifest.xml
-../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/rospy/manifest.xml
-../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/roscpp/manifest.xml
-../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/std_msgs/manifest.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/ros_rl500xa/msg/_toArduino_msg.py"
-	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/ruslan/ros_workspace/ros_rl500xa/msg/toArduino_msg.msg
+	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/ruslan/ros_workspace/ros_rl500xa/msg/fromArduino_msg.msg /home/ruslan/ros_workspace/ros_rl500xa/msg/fromObserver_msg.msg /home/ruslan/ros_workspace/ros_rl500xa/msg/toArduino_msg.msg
 
 ../src/ros_rl500xa/msg/_fromArduino_msg.py: ../msg/fromArduino_msg.msg
 ../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
@@ -70,14 +62,57 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/ros_rl500xa/msg/__init__.py
 ../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/share/roscpp/manifest.xml
 ../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/share/std_msgs/manifest.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_3)
+../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+../src/ros_rl500xa/msg/_fromArduino_msg.py: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+../src/ros_rl500xa/msg/_fromArduino_msg.py: /home/ruslan/ros_workspace/cmvision/manifest.xml
+../src/ros_rl500xa/msg/_fromArduino_msg.py: /home/ruslan/ros_workspace/cmvision/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/ros_rl500xa/msg/_fromArduino_msg.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/ruslan/ros_workspace/ros_rl500xa/msg/fromArduino_msg.msg
 
+../src/ros_rl500xa/msg/_fromObserver_msg.py: ../msg/fromObserver_msg.msg
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/roslib/bin/gendeps
+../src/ros_rl500xa/msg/_fromObserver_msg.py: ../manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/rospy/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/std_msgs/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /home/ruslan/ros_workspace/cmvision/manifest.xml
+../src/ros_rl500xa/msg/_fromObserver_msg.py: /home/ruslan/ros_workspace/cmvision/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/ros_rl500xa/msg/_fromObserver_msg.py"
+	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/ruslan/ros_workspace/ros_rl500xa/msg/fromObserver_msg.msg
+
+../src/ros_rl500xa/msg/_toArduino_msg.py: ../msg/toArduino_msg.msg
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/roslib/bin/gendeps
+../src/ros_rl500xa/msg/_toArduino_msg.py: ../manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/rospy/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/std_msgs/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /home/ruslan/ros_workspace/cmvision/manifest.xml
+../src/ros_rl500xa/msg/_toArduino_msg.py: /home/ruslan/ros_workspace/cmvision/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/ros_rl500xa/msg/_toArduino_msg.py"
+	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/ruslan/ros_workspace/ros_rl500xa/msg/toArduino_msg.msg
+
 ROSBUILD_genmsg_py: CMakeFiles/ROSBUILD_genmsg_py
 ROSBUILD_genmsg_py: ../src/ros_rl500xa/msg/__init__.py
-ROSBUILD_genmsg_py: ../src/ros_rl500xa/msg/_toArduino_msg.py
 ROSBUILD_genmsg_py: ../src/ros_rl500xa/msg/_fromArduino_msg.py
+ROSBUILD_genmsg_py: ../src/ros_rl500xa/msg/_fromObserver_msg.py
+ROSBUILD_genmsg_py: ../src/ros_rl500xa/msg/_toArduino_msg.py
 ROSBUILD_genmsg_py: CMakeFiles/ROSBUILD_genmsg_py.dir/build.make
 .PHONY : ROSBUILD_genmsg_py
 

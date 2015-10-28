@@ -28,6 +28,8 @@ struct toArduino_msg_ {
   , xAxisDirection()
   , yAxisDirection()
   , movingRobot(0)
+  , sendEncoderData(0)
+  , resetEncoders(0)
   {
   }
 
@@ -38,6 +40,8 @@ struct toArduino_msg_ {
   , xAxisDirection(_alloc)
   , yAxisDirection(_alloc)
   , movingRobot(0)
+  , sendEncoderData(0)
+  , resetEncoders(0)
   {
   }
 
@@ -58,6 +62,12 @@ struct toArduino_msg_ {
 
   typedef int32_t _movingRobot_type;
   int32_t movingRobot;
+
+  typedef int32_t _sendEncoderData_type;
+  int32_t sendEncoderData;
+
+  typedef int32_t _resetEncoders_type;
+  int32_t resetEncoders;
 
 
   typedef boost::shared_ptr< ::ros_rl500xa::toArduino_msg_<ContainerAllocator> > Ptr;
@@ -88,12 +98,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::ros_rl500xa::toArduino_msg_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "75ed9b478daf461a0f88dc5939d827df";
+    return "f91b4a8598aa3fa9c07c3c68c4411337";
   }
 
   static const char* value(const  ::ros_rl500xa::toArduino_msg_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x75ed9b478daf461aULL;
-  static const uint64_t static_value2 = 0x0f88dc5939d827dfULL;
+  static const uint64_t static_value1 = 0xf91b4a8598aa3fa9ULL;
+  static const uint64_t static_value2 = 0xc07c3c68c4411337ULL;
 };
 
 template<class ContainerAllocator>
@@ -116,6 +126,8 @@ int32 turret_pulse_width\n\
 string xAxisDirection\n\
 string yAxisDirection\n\
 int32 movingRobot\n\
+int32 sendEncoderData\n\
+int32 resetEncoders\n\
 \n\
 ";
   }
@@ -141,6 +153,8 @@ template<class ContainerAllocator> struct Serializer< ::ros_rl500xa::toArduino_m
     stream.next(m.xAxisDirection);
     stream.next(m.yAxisDirection);
     stream.next(m.movingRobot);
+    stream.next(m.sendEncoderData);
+    stream.next(m.resetEncoders);
   }
 
   ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -170,6 +184,10 @@ struct Printer< ::ros_rl500xa::toArduino_msg_<ContainerAllocator> >
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.yAxisDirection);
     s << indent << "movingRobot: ";
     Printer<int32_t>::stream(s, indent + "  ", v.movingRobot);
+    s << indent << "sendEncoderData: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.sendEncoderData);
+    s << indent << "resetEncoders: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.resetEncoders);
   }
 };
 

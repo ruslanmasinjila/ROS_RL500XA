@@ -14,6 +14,7 @@ namespace ros_rl500xa
     public:
       float DL;
       float DR;
+      long robotID;
 
     virtual int serialize(unsigned char *outbuffer)
     {
@@ -38,6 +39,16 @@ namespace ros_rl500xa
       *(outbuffer + offset + 2) = (u_DR.base >> (8 * 2)) & 0xFF;
       *(outbuffer + offset + 3) = (u_DR.base >> (8 * 3)) & 0xFF;
       offset += sizeof(this->DR);
+      union {
+        long real;
+        unsigned long base;
+      } u_robotID;
+      u_robotID.real = this->robotID;
+      *(outbuffer + offset + 0) = (u_robotID.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_robotID.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_robotID.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_robotID.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->robotID);
       return offset;
     }
 
@@ -66,6 +77,17 @@ namespace ros_rl500xa
       u_DR.base |= ((typeof(u_DR.base)) (*(inbuffer + offset + 3))) << (8 * 3);
       this->DR = u_DR.real;
       offset += sizeof(this->DR);
+      union {
+        long real;
+        unsigned long base;
+      } u_robotID;
+      u_robotID.base = 0;
+      u_robotID.base |= ((typeof(u_robotID.base)) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_robotID.base |= ((typeof(u_robotID.base)) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_robotID.base |= ((typeof(u_robotID.base)) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_robotID.base |= ((typeof(u_robotID.base)) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->robotID = u_robotID.real;
+      offset += sizeof(this->robotID);
      return offset;
     }
 

@@ -31,6 +31,9 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/ruslan/ros_workspace/ros_rl500xa
 
@@ -42,28 +45,15 @@ CMAKE_BINARY_DIR = /home/ruslan/ros_workspace/ros_rl500xa/build
 # Include the progress variables for this target.
 include CMakeFiles/ROSBUILD_genmsg_lisp.dir/progress.make
 
-CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/toArduino_msg.lisp
-CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
-CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_toArduino_msg.lisp
 CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/fromArduino_msg.lisp
 CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
 CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_fromArduino_msg.lisp
-
-../msg_gen/lisp/toArduino_msg.lisp: ../msg/toArduino_msg.msg
-../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py
-../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
-../msg_gen/lisp/toArduino_msg.lisp: ../manifest.xml
-../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
-../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
-../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
-../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/std_msgs/manifest.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/toArduino_msg.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_toArduino_msg.lisp"
-	/opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py /home/ruslan/ros_workspace/ros_rl500xa/msg/toArduino_msg.msg
-
-../msg_gen/lisp/_package.lisp: ../msg_gen/lisp/toArduino_msg.lisp
-
-../msg_gen/lisp/_package_toArduino_msg.lisp: ../msg_gen/lisp/toArduino_msg.lisp
+CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/fromObserver_msg.lisp
+CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
+CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_fromObserver_msg.lisp
+CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/toArduino_msg.lisp
+CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
+CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_toArduino_msg.lisp
 
 ../msg_gen/lisp/fromArduino_msg.lisp: ../msg/fromArduino_msg.msg
 ../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py
@@ -73,7 +63,13 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_fromArduino_msg.lisp
 ../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
 ../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/share/std_msgs/manifest.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_2)
+../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+../msg_gen/lisp/fromArduino_msg.lisp: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+../msg_gen/lisp/fromArduino_msg.lisp: /home/ruslan/ros_workspace/cmvision/manifest.xml
+../msg_gen/lisp/fromArduino_msg.lisp: /home/ruslan/ros_workspace/cmvision/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/fromArduino_msg.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_fromArduino_msg.lisp"
 	/opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py /home/ruslan/ros_workspace/ros_rl500xa/msg/fromArduino_msg.msg
 
@@ -81,13 +77,60 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_fromArduino_msg.lisp
 
 ../msg_gen/lisp/_package_fromArduino_msg.lisp: ../msg_gen/lisp/fromArduino_msg.lisp
 
+../msg_gen/lisp/fromObserver_msg.lisp: ../msg/fromObserver_msg.msg
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
+../msg_gen/lisp/fromObserver_msg.lisp: ../manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/std_msgs/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /home/ruslan/ros_workspace/cmvision/manifest.xml
+../msg_gen/lisp/fromObserver_msg.lisp: /home/ruslan/ros_workspace/cmvision/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/fromObserver_msg.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_fromObserver_msg.lisp"
+	/opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py /home/ruslan/ros_workspace/ros_rl500xa/msg/fromObserver_msg.msg
+
+../msg_gen/lisp/_package.lisp: ../msg_gen/lisp/fromObserver_msg.lisp
+
+../msg_gen/lisp/_package_fromObserver_msg.lisp: ../msg_gen/lisp/fromObserver_msg.lisp
+
+../msg_gen/lisp/toArduino_msg.lisp: ../msg/toArduino_msg.msg
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
+../msg_gen/lisp/toArduino_msg.lisp: ../manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/std_msgs/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /home/ruslan/ros_workspace/cmvision/manifest.xml
+../msg_gen/lisp/toArduino_msg.lisp: /home/ruslan/ros_workspace/cmvision/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ruslan/ros_workspace/ros_rl500xa/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/toArduino_msg.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_toArduino_msg.lisp"
+	/opt/ros/fuerte/share/roslisp/rosbuild/scripts/genmsg_lisp.py /home/ruslan/ros_workspace/ros_rl500xa/msg/toArduino_msg.msg
+
+../msg_gen/lisp/_package.lisp: ../msg_gen/lisp/toArduino_msg.lisp
+
+../msg_gen/lisp/_package_toArduino_msg.lisp: ../msg_gen/lisp/toArduino_msg.lisp
+
 ROSBUILD_genmsg_lisp: CMakeFiles/ROSBUILD_genmsg_lisp
-ROSBUILD_genmsg_lisp: ../msg_gen/lisp/toArduino_msg.lisp
-ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
-ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_toArduino_msg.lisp
 ROSBUILD_genmsg_lisp: ../msg_gen/lisp/fromArduino_msg.lisp
 ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
 ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_fromArduino_msg.lisp
+ROSBUILD_genmsg_lisp: ../msg_gen/lisp/fromObserver_msg.lisp
+ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
+ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_fromObserver_msg.lisp
+ROSBUILD_genmsg_lisp: ../msg_gen/lisp/toArduino_msg.lisp
+ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package.lisp
+ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_toArduino_msg.lisp
 ROSBUILD_genmsg_lisp: CMakeFiles/ROSBUILD_genmsg_lisp.dir/build.make
 .PHONY : ROSBUILD_genmsg_lisp
 

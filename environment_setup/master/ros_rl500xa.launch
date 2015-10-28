@@ -1,15 +1,20 @@
 <launch>
 
-<node pkg="ros_rl500xa" type="ROSToArduino.py" name="ROSToArduino" output="screen"/>
+<!--Skip n frames from Kinect-->
+<param name="/camera/driver/data_skip" value="0" />
 
+<node pkg="ros_rl500xa" type="ROSToArduino.py" name="ROSToArduino" output="screen"/>
 <node pkg="rosserial_python" type="serial_node.py" name="arduino" output="screen">
 	<param name="port" value="/dev/ttyACM0"/>
-	<param name="baud" value="57600"/>
+	<param name="baud" value="115200"/>
 </node>
+
+<node pkg="ros_rl500xa" type="visual_tracker.py" name="VisualTracker" output="screen"/>
+
 
 <!--Change jsX according to the USB port-->
 <node pkg="joy" type="joy" name="teleopJoy">
-        <param name="dev" type="string" value="/dev/input/js0" />
+        <param name="dev" type="string" value="/dev/input/js1" />
 
 </node>
 </launch>

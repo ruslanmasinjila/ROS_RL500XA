@@ -3,4 +3,6 @@
           DL
           DR-VAL
           DR
+          ROBOTID-VAL
+          ROBOTID
 ))

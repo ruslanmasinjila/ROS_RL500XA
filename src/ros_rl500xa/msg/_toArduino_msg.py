@@ -6,7 +6,7 @@ import struct
 
 
 class toArduino_msg(genpy.Message):
-  _md5sum = "75ed9b478daf461a0f88dc5939d827df"
+  _md5sum = "f91b4a8598aa3fa9c07c3c68c4411337"
   _type = "ros_rl500xa/toArduino_msg"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """int32 fr_pwm
@@ -15,10 +15,12 @@ int32 turret_pulse_width
 string xAxisDirection
 string yAxisDirection
 int32 movingRobot
+int32 sendEncoderData
+int32 resetEncoders
 
 """
-  __slots__ = ['fr_pwm','lr_pwm','turret_pulse_width','xAxisDirection','yAxisDirection','movingRobot']
-  _slot_types = ['int32','int32','int32','string','string','int32']
+  __slots__ = ['fr_pwm','lr_pwm','turret_pulse_width','xAxisDirection','yAxisDirection','movingRobot','sendEncoderData','resetEncoders']
+  _slot_types = ['int32','int32','int32','string','string','int32','int32','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -28,7 +30,7 @@ int32 movingRobot
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       fr_pwm,lr_pwm,turret_pulse_width,xAxisDirection,yAxisDirection,movingRobot
+       fr_pwm,lr_pwm,turret_pulse_width,xAxisDirection,yAxisDirection,movingRobot,sendEncoderData,resetEncoders
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -49,6 +51,10 @@ int32 movingRobot
         self.yAxisDirection = ''
       if self.movingRobot is None:
         self.movingRobot = 0
+      if self.sendEncoderData is None:
+        self.sendEncoderData = 0
+      if self.resetEncoders is None:
+        self.resetEncoders = 0
     else:
       self.fr_pwm = 0
       self.lr_pwm = 0
@@ -56,6 +62,8 @@ int32 movingRobot
       self.xAxisDirection = ''
       self.yAxisDirection = ''
       self.movingRobot = 0
+      self.sendEncoderData = 0
+      self.resetEncoders = 0
 
   def _get_types(self):
     """
@@ -83,7 +91,8 @@ int32 movingRobot
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_struct_i.pack(self.movingRobot))
+      _x = self
+      buff.write(_struct_3i.pack(_x.movingRobot, _x.sendEncoderData, _x.resetEncoders))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -116,9 +125,10 @@ int32 movingRobot
         self.yAxisDirection = str[start:end].decode('utf-8')
       else:
         self.yAxisDirection = str[start:end]
+      _x = self
       start = end
-      end += 4
-      (self.movingRobot,) = _struct_i.unpack(str[start:end])
+      end += 12
+      (_x.movingRobot, _x.sendEncoderData, _x.resetEncoders,) = _struct_3i.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -145,7 +155,8 @@ int32 movingRobot
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_struct_i.pack(self.movingRobot))
+      _x = self
+      buff.write(_struct_3i.pack(_x.movingRobot, _x.sendEncoderData, _x.resetEncoders))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -179,13 +190,13 @@ int32 movingRobot
         self.yAxisDirection = str[start:end].decode('utf-8')
       else:
         self.yAxisDirection = str[start:end]
+      _x = self
       start = end
-      end += 4
-      (self.movingRobot,) = _struct_i.unpack(str[start:end])
+      end += 12
+      (_x.movingRobot, _x.sendEncoderData, _x.resetEncoders,) = _struct_3i.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_i = struct.Struct("<i")
 _struct_3i = struct.Struct("<3i")

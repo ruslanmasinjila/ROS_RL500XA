@@ -24,12 +24,14 @@ struct fromArduino_msg_ {
   fromArduino_msg_()
   : DL(0.0)
   , DR(0.0)
+  , robotID(0)
   {
   }
 
   fromArduino_msg_(const ContainerAllocator& _alloc)
   : DL(0.0)
   , DR(0.0)
+  , robotID(0)
   {
   }
 
@@ -38,6 +40,9 @@ struct fromArduino_msg_ {
 
   typedef float _DR_type;
   float DR;
+
+  typedef int32_t _robotID_type;
+  int32_t robotID;
 
 
   typedef boost::shared_ptr< ::ros_rl500xa::fromArduino_msg_<ContainerAllocator> > Ptr;
@@ -68,12 +73,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::ros_rl500xa::fromArduino_msg_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "523793fd4bc77900491fb58970438a6d";
+    return "5fa7d0066871ee2aabe9e9a8d13f76c1";
   }
 
   static const char* value(const  ::ros_rl500xa::fromArduino_msg_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x523793fd4bc77900ULL;
-  static const uint64_t static_value2 = 0x491fb58970438a6dULL;
+  static const uint64_t static_value1 = 0x5fa7d0066871ee2aULL;
+  static const uint64_t static_value2 = 0xabe9e9a8d13f76c1ULL;
 };
 
 template<class ContainerAllocator>
@@ -92,6 +97,7 @@ struct Definition< ::ros_rl500xa::fromArduino_msg_<ContainerAllocator> > {
   {
     return "float32 DL\n\
 float32 DR\n\
+int32 robotID\n\
 \n\
 ";
   }
@@ -114,6 +120,7 @@ template<class ContainerAllocator> struct Serializer< ::ros_rl500xa::fromArduino
   {
     stream.next(m.DL);
     stream.next(m.DR);
+    stream.next(m.robotID);
   }
 
   ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -135,6 +142,8 @@ struct Printer< ::ros_rl500xa::fromArduino_msg_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.DL);
     s << indent << "DR: ";
     Printer<float>::stream(s, indent + "  ", v.DR);
+    s << indent << "robotID: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.robotID);
   }
 };
 

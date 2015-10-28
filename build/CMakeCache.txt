@@ -140,6 +140,10 @@ CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=
 //Flags used by the linker during Release with Debug Info builds.
 CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
+//If set, runtime paths are not added when installing shared libraries,
+// but are added when building.
+CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
+
 //If set, runtime paths are not added when using shared libraries.
 CMAKE_SKIP_RPATH:BOOL=NO
 
@@ -212,7 +216,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=2
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=8
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=7
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=9
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -308,6 +312,8 @@ CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_SHARED_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SKIP_INSTALL_RPATH
+CMAKE_SKIP_INSTALL_RPATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SKIP_RPATH
 CMAKE_SKIP_RPATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_STRIP
@@ -326,18 +332,18 @@ FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.3()]
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 _rosbuild_EXPORTS:INTERNAL=
-_rosbuild_cached_flag_time:INTERNAL=1413983414.49
-_roslang_LANGS:INTERNAL=rospy;roscpp;roslisp
-_rospack_deps_manifests_invoke_result:INTERNAL=/opt/ros/fuerte/share/roslang/manifest.xml;/opt/ros/fuerte/share/rospy/manifest.xml;/opt/ros/fuerte/share/roscpp/manifest.xml;/opt/ros/fuerte/share/std_msgs/manifest.xml
-_rospack_msgsrv_gen_invoke_result:INTERNAL=
+_rosbuild_cached_flag_time:INTERNAL=1432222487.08
+_roslang_LANGS:INTERNAL=roslisp;rospy;roscpp
+_rospack_deps_manifests_invoke_result:INTERNAL=/opt/ros/fuerte/share/roslang/manifest.xml;/opt/ros/fuerte/share/rospy/manifest.xml;/opt/ros/fuerte/share/roscpp/manifest.xml;/opt/ros/fuerte/share/std_msgs/manifest.xml;/opt/ros/fuerte/share/geometry_msgs/manifest.xml;/opt/ros/fuerte/share/sensor_msgs/manifest.xml;/opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml;/opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml;/home/ruslan/ros_workspace/cmvision/manifest.xml
+_rospack_msgsrv_gen_invoke_result:INTERNAL=/home/ruslan/ros_workspace/cmvision/msg_gen/generated
 ros_rl500xa_CFLAGS_OTHER:INTERNAL=
 ros_rl500xa_INCLUDEDIR:INTERNAL=
-ros_rl500xa_INCLUDE_DIRS:INTERNAL=/opt/ros/fuerte/include
-ros_rl500xa_LDFLAGS_OTHER:INTERNAL=
-ros_rl500xa_LIBRARIES:INTERNAL=roscpp;rostime;rosconsole;roscpp_serialization;xmlrpcpp
-ros_rl500xa_LIBRARY_DIRS:INTERNAL=/opt/ros/fuerte/lib
-ros_rl500xa_cached_manifest_list:INTERNAL=/home/ruslan/ros_workspace/ros_rl500xa/manifest.xml;/opt/ros/fuerte/share/roslang/manifest.xml;/opt/ros/fuerte/share/rospy/manifest.xml;/opt/ros/fuerte/share/roscpp/manifest.xml;/opt/ros/fuerte/share/std_msgs/manifest.xml
-ros_rl500xa_temp:INTERNAL=
+ros_rl500xa_INCLUDE_DIRS:INTERNAL=/opt/ros/fuerte/include;/home/ruslan/ros_workspace/cmvision/msg/cpp;/home/ruslan/ros_workspace/cmvision/msg_gen/cpp/include;/opt/ros/fuerte/include/opencv;/opt/ros/fuerte/stacks/vision_opencv/cv_bridge/include
+ros_rl500xa_LDFLAGS_OTHER:INTERNAL=-Wl,-rpath,/home/ruslan/ros_workspace/cmvision/cmvision/lib -Wl,-rpath,/opt/ros/fuerte/stacks/vision_opencv/cv_bridge/lib
+ros_rl500xa_LIBRARIES:INTERNAL=roscpp;rostime;rosconsole;roscpp_serialization;xmlrpcpp;boost_thread-mt;opencv_calib3d;opencv_contrib;opencv_core;opencv_features2d;opencv_flann;opencv_gpu;opencv_highgui;opencv_imgproc;opencv_legacy;opencv_ml;opencv_nonfree;opencv_objdetect;opencv_photo;opencv_stitching;opencv_ts;opencv_video;opencv_videostab;cv_bridge
+ros_rl500xa_LIBRARY_DIRS:INTERNAL=/opt/ros/fuerte/lib;/home/ruslan/ros_workspace/cmvision/cmvision/lib;/opt/ros/fuerte/stacks/vision_opencv/cv_bridge/lib
+ros_rl500xa_cached_manifest_list:INTERNAL=/home/ruslan/ros_workspace/ros_rl500xa/manifest.xml;/opt/ros/fuerte/share/roslang/manifest.xml;/opt/ros/fuerte/share/rospy/manifest.xml;/opt/ros/fuerte/share/roscpp/manifest.xml;/opt/ros/fuerte/share/std_msgs/manifest.xml;/opt/ros/fuerte/share/geometry_msgs/manifest.xml;/opt/ros/fuerte/share/sensor_msgs/manifest.xml;/opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml;/opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml;/home/ruslan/ros_workspace/cmvision/manifest.xml;/home/ruslan/ros_workspace/cmvision/msg_gen/generated
+ros_rl500xa_temp:INTERNAL=-Wl,-rpath,/home/ruslan/ros_workspace/cmvision/cmvision/lib;-Wl,-rpath,/opt/ros/fuerte/stacks/vision_opencv/cv_bridge/lib
 roscpp_CMAKE:INTERNAL=/opt/ros/fuerte/share/roscpp/rosbuild/roscpp.cmake
 roslib_path:INTERNAL=/opt/ros/fuerte/share/roslib
 roslisp_CMAKE:INTERNAL=/opt/ros/fuerte/share/roslisp/rosbuild/roslisp.cmake

@@ -1,4 +1,5 @@
 //********************************ROBOT VARIABLES*********************************
-int robotID=0;
+int robotID=101;
 int allRobots=999;
 int movingRobot=-1;
+int sendEncoderData=0;

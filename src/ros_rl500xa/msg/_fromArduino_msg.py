@@ -6,15 +6,16 @@ import struct
 
 
 class fromArduino_msg(genpy.Message):
-  _md5sum = "523793fd4bc77900491fb58970438a6d"
+  _md5sum = "5fa7d0066871ee2aabe9e9a8d13f76c1"
   _type = "ros_rl500xa/fromArduino_msg"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """float32 DL
 float32 DR
+int32 robotID
 
 """
-  __slots__ = ['DL','DR']
-  _slot_types = ['float32','float32']
+  __slots__ = ['DL','DR','robotID']
+  _slot_types = ['float32','float32','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -24,7 +25,7 @@ float32 DR
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       DL,DR
+       DL,DR,robotID
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -37,9 +38,12 @@ float32 DR
         self.DL = 0.
       if self.DR is None:
         self.DR = 0.
+      if self.robotID is None:
+        self.robotID = 0
     else:
       self.DL = 0.
       self.DR = 0.
+      self.robotID = 0
 
   def _get_types(self):
     """
@@ -54,7 +58,7 @@ float32 DR
     """
     try:
       _x = self
-      buff.write(_struct_2f.pack(_x.DL, _x.DR))
+      buff.write(_struct_2fi.pack(_x.DL, _x.DR, _x.robotID))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -67,8 +71,8 @@ float32 DR
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.DL, _x.DR,) = _struct_2f.unpack(str[start:end])
+      end += 12
+      (_x.DL, _x.DR, _x.robotID,) = _struct_2fi.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -82,7 +86,7 @@ float32 DR
     """
     try:
       _x = self
-      buff.write(_struct_2f.pack(_x.DL, _x.DR))
+      buff.write(_struct_2fi.pack(_x.DL, _x.DR, _x.robotID))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -96,11 +100,11 @@ float32 DR
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.DL, _x.DR,) = _struct_2f.unpack(str[start:end])
+      end += 12
+      (_x.DL, _x.DR, _x.robotID,) = _struct_2fi.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_2f = struct.Struct("<2f")
+_struct_2fi = struct.Struct("<2fi")

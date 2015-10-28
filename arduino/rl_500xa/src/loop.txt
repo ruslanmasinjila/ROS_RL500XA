@@ -9,7 +9,26 @@ void loop()
     {
     steerPlatform();
     }
-    turn_turret();
-    publishEncoderDistances();
+
+    //turn_turret();
+
+    //TODO: Add &&movingRobot=robotID to trigger only one
+    //callback inside ROSToArduino node
+
+    if(sendEncoderData==1 && movingRobot==robotID)	
+    {
+     publishEncoderDistances();
+
+    // Reset Data Request Command to prevent sending continuously
+    sendEncoderData=0;
+    }
+
+    //Reset Left and Right wheel encoder values
+    if(resetEncoders==1)
+    {
+    leftEncoderCount=0;
+    rightEncoderCount=0;
+    resetEncoders=0;
+    }
 
 }

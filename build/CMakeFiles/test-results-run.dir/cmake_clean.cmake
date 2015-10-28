@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
-  "../src/ros_rl500xa/msg"
   "../msg_gen"
+  "../src/ros_rl500xa/msg"
   "../msg_gen"
   "CMakeFiles/test-results-run"
 )

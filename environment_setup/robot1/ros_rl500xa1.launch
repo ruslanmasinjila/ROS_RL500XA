@@ -2,8 +2,14 @@
 
 <node pkg="rosserial_python" type="serial_node.py" name="arduino1" output="screen">
 	<param name="port" value="/dev/ttyACM0"/>
-	<param name="baud" value="57600"/>
+	<param name="baud" value="115200"/>
 	<remap from="arduinoToROS_tpc" to="arduinoToROS_tpc1" />
+</node>
+
+<node pkg="ros_rl500xa" type="visual_tracker.py" name="VisualTracker1" output="screen">
+	<remap from="kinectToROS_tpc" to="kinectToROS_tpc1" />
+	<remap from="/camera/depth_registered/points" to="/kinect1/depth_registered1/points" />
+	<remap from="/camera/rgb/image_color" to="/kinect1/rgb1/image_color" />
 </node>
 
 </launch>
